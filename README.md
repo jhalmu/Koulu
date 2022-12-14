@@ -12,3 +12,5 @@ Last school thing is index, previous have to mv to index to work or change in pa
 - -> npm run dev
 
 - Atlas finds to be quite slow and tricky. Maeby old examples have something to do it too. Have to try this again for better experience.
+
+- Added as asked killall customers feature. Skulls <3. Found that postgress have neat feature RETURNING which shows deleted information.

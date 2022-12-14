@@ -1,3 +1,4 @@
+const { removeAllListeners } = require('nodemon');
 const db = require('./dbconfig');
 
 // Get ALL customers
@@ -82,10 +83,31 @@ const updateCustomer = (req, res) => {
     res.json(editedCustomer);
 }
 
+/////////
+/// DELETE ALL
+
+// Delete all customers
+// Get ALL customers
+const deleteAllCustomers = (req, res) => {
+    db.query('DELETE FROM customers RETURNING  *', (err, result) => {
+        if (err)
+            console.error(err);
+        else
+            //res.text(result.rows)
+            res.json('💀  alles klart 💀 ')
+        console.log(' 💀 Customers brutally murdered by you! 💀 \n    List of victims: \n', result.rows)
+    })
+}
+
+
+///////////////
+
+
 module.exports = {
     getAllCustomers: getAllCustomers,
     getCustomer: getCustomer,
     addCustomer: addCustomer,
     deleteCustomer: deleteCustomer,
-    updateCustomer: updateCustomer
+    updateCustomer: updateCustomer,
+    deleteAllCustomers: deleteAllCustomers
 }
